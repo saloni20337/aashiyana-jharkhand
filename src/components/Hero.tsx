@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { MapPin, Sparkles, MessageCircle } from "lucide-react";
+import { MapPin, Sparkles, MessageCircle, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-jharkhand.jpg";
 
 const Hero = () => {
@@ -48,6 +49,16 @@ const Hero = () => {
               <MessageCircle className="mr-2 h-5 w-5" />
               AI Travel Assistant
             </Button>
+            <Link to="/auth">
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="bg-secondary/10 backdrop-blur-sm border-secondary/30 text-white hover:bg-secondary/20 hover:text-white text-lg px-8 py-6"
+              >
+                <Calendar className="mr-2 h-5 w-5" />
+                My Calendar
+              </Button>
+            </Link>
           </div>
 
           {/* Stats */}
