@@ -3,6 +3,7 @@ import DestinationsShowcase from "@/components/DestinationsShowcase";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import CulturalHighlight from "@/components/CulturalHighlight";
 import Footer from "@/components/Footer";
+import AIRecommendations from "@/components/AIRecommendations";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <FeaturesGrid />
       <CulturalHighlight />
       <Footer />
+      <AIRecommendations />
     </div>
   );
 };
