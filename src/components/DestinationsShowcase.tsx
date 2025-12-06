@@ -4,6 +4,7 @@ import { MapPin, Star } from "lucide-react";
 import betlaImage from "@/assets/betla-park.jpg";
 import deogarImage from "@/assets/deoghar-temple.jpg";
 import netarhatImage from "@/assets/netarhat-sunset.jpg";
+import rajrappaImage from "@/assets/rajrappa-temple.jpg";
 
 const destinations = [
   {
@@ -27,6 +28,13 @@ const destinations = [
     rating: 4.7,
     description: "Watch breathtaking sunsets from the 'Queen of Chotanagpur' with panoramic valley views",
   },
+  {
+    name: "Rajrappa Mandir",
+    image: rajrappaImage,
+    category: "Spiritual",
+    rating: 4.8,
+    description: "Sacred temple of Goddess Chinnamasta at the confluence of Damodar and Bhairavi rivers",
+  },
 ];
 
 const DestinationsShowcase = () => {
@@ -43,7 +51,7 @@ const DestinationsShowcase = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {destinations.map((destination, index) => (
             <Card 
               key={index} 
