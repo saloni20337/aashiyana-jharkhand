@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Calendar, User } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import FeedbackDialog from "./FeedbackDialog";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -71,6 +72,7 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
+            <FeedbackDialog variant={isScrolled ? "outline" : "ghost"} className={isScrolled ? "" : "text-white border-white/30 hover:bg-white/10"} />
             {user ? (
               <Button
                 onClick={() => navigate("/calendar")}
@@ -116,7 +118,8 @@ const Navbar = () => {
                   {link.name}
                 </button>
               ))}
-              <div className="pt-2 px-4">
+              <div className="pt-2 px-4 space-y-2">
+                <FeedbackDialog variant="outline" className="w-full" />
                 {user ? (
                   <Button
                     onClick={() => navigate("/calendar")}
