@@ -29,11 +29,11 @@ const destinations = [
     description: "Watch breathtaking sunsets from the 'Queen of Chotanagpur' with panoramic valley views",
   },
   {
-    name: "Rajrappa Mandir",
+    name: "Rajrappa Mandir, Ramgarh",
     image: rajrappaImage,
     category: "Spiritual",
     rating: 4.8,
-    description: "Sacred temple of Goddess Chinnamasta at the confluence of Damodar and Bhairavi rivers",
+    description: "Sacred temple of Goddess Chinnamasta at the confluence of Damodar and Bhairavi rivers in Ramgarh",
   },
 ];
 
