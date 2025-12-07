@@ -11,6 +11,7 @@ const navLinks = [
   { name: "Destinations", href: "#destinations" },
   { name: "Features", href: "#features" },
   { name: "Culture", href: "#culture" },
+  { name: "Language", href: "/language", isPage: true },
 ];
 
 const Navbar = () => {
@@ -27,10 +28,14 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = (href: string, isPage?: boolean) => {
+    if (isPage) {
+      navigate(href);
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsOpen(false);
   };
@@ -66,7 +71,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <button
                 key={link.name}
-                onClick={() => scrollToSection(link.href)}
+                onClick={() => handleNavClick(link.href, link.isPage)}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
                   isScrolled ? "text-foreground" : "text-white"
                 }`}
@@ -118,7 +123,7 @@ const Navbar = () => {
               {navLinks.map((link) => (
                 <button
                   key={link.name}
-                  onClick={() => scrollToSection(link.href)}
+                  onClick={() => handleNavClick(link.href, link.isPage)}
                   className="block w-full text-left px-4 py-3 text-foreground hover:bg-muted rounded-md transition-colors"
                 >
                   {link.name}
