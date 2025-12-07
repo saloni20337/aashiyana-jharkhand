@@ -10,7 +10,8 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Mountain } from "lucide-react";
+import { Mountain, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const signInSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -75,7 +76,13 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-4 relative">
+      <Button variant="ghost" asChild className="absolute top-4 left-4 gap-2">
+        <Link to="/">
+          <ArrowLeft className="w-4 h-4" />
+          Back to Home
+        </Link>
+      </Button>
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="mx-auto w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
