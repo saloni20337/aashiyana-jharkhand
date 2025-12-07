@@ -11,7 +11,6 @@ const navLinks = [
   { name: "Destinations", href: "#destinations" },
   { name: "Features", href: "#features" },
   { name: "Culture", href: "#culture" },
-  { name: "Language", href: "#language" },
 ];
 
 const Navbar = () => {
