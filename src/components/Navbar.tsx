@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Calendar, User, MapPin } from "lucide-react";
+import { Menu, X, Calendar, User } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import FeedbackDialog from "./FeedbackDialog";
+import JharkhandIcon from "./icons/JharkhandIcon";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -46,8 +47,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <MapPin
-              className={`w-6 h-6 md:w-7 md:h-7 transition-colors ${
+            <JharkhandIcon
+              className={`w-7 h-8 md:w-8 md:h-9 transition-colors ${
                 isScrolled ? "text-primary" : "text-white"
               }`}
             />
