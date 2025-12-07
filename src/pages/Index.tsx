@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import DestinationsShowcase from "@/components/DestinationsShowcase";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import CulturalHighlight from "@/components/CulturalHighlight";
+import LanguageHelp from "@/components/LanguageHelp";
 import Footer from "@/components/Footer";
 import AIRecommendations from "@/components/AIRecommendations";
 
@@ -21,6 +22,9 @@ const Index = () => {
       </section>
       <section id="culture">
         <CulturalHighlight />
+      </section>
+      <section id="language">
+        <LanguageHelp />
       </section>
       <Footer />
       <AIRecommendations />
