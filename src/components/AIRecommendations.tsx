@@ -112,9 +112,6 @@ const AIRecommendations = () => {
             <X className="w-5 h-5" />
           </Button>
         </div>
-        <Badge variant="secondary" className="mt-2 w-fit">
-          Powered by Lovable AI
-        </Badge>
       </CardHeader>
 
       <ScrollArea className="flex-1 p-4">
