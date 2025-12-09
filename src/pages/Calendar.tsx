@@ -14,6 +14,8 @@ import { format } from "date-fns";
 import { Plus, Trash2, LogOut, MapPin, Calendar as CalendarIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 interface Reminder {
   id: string;
@@ -122,21 +124,23 @@ const Calendar = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
+      
       {/* Header */}
-      <header className="border-b bg-card">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-foreground">My Travel Calendar</h1>
-          <div className="flex gap-2">
-            <Button variant="outline" onClick={() => navigate("/")}>
-              Home
-            </Button>
+      <div className="pt-24 pb-8 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold text-foreground">My Travel Calendar</h1>
+              <p className="text-muted-foreground mt-1">Plan and track your Jharkhand adventures</p>
+            </div>
             <Button variant="outline" onClick={signOut}>
               <LogOut className="w-4 h-4 mr-2" />
               Sign Out
             </Button>
           </div>
         </div>
-      </header>
+      </div>
 
       <div className="container mx-auto px-4 py-8">
         <div className="grid md:grid-cols-2 gap-8">
@@ -274,6 +278,8 @@ const Calendar = () => {
           </Card>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };

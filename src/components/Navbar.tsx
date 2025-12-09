@@ -7,10 +7,12 @@ import FeedbackDialog from "./FeedbackDialog";
 import JharkhandIcon from "./icons/JharkhandIcon";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Destinations", href: "#destinations" },
-  { name: "Features", href: "#features" },
-  { name: "Culture", href: "#culture" },
+  { name: "Home", href: "/", isPage: true },
+  { name: "Destinations", href: "/#destinations" },
+  { name: "Itineraries", href: "/itineraries", isPage: true },
+  { name: "Marketplace", href: "/marketplace", isPage: true },
+  { name: "Maps", href: "/maps", isPage: true },
+  { name: "Analytics", href: "/analytics", isPage: true },
   { name: "Language", href: "/language", isPage: true },
 ];
 
@@ -31,6 +33,16 @@ const Navbar = () => {
   const handleNavClick = (href: string, isPage?: boolean) => {
     if (isPage) {
       navigate(href);
+    } else if (href.startsWith("/#")) {
+      // Handle hash links from other pages
+      if (window.location.pathname !== "/") {
+        navigate(href);
+      } else {
+        const element = document.querySelector(href.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     } else {
       const element = document.querySelector(href);
       if (element) {
