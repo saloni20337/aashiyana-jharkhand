@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Calendar, User } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -21,6 +21,11 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { user } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Show solid navbar on all pages except homepage
+  const isHomePage = location.pathname === "/";
+  const showSolidNavbar = !isHomePage || isScrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,7 +60,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        showSolidNavbar
           ? "bg-background/95 backdrop-blur-md shadow-md"
           : "bg-transparent"
       }`}
@@ -66,12 +71,12 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-2">
             <JharkhandIcon
               className={`w-7 h-8 md:w-8 md:h-9 transition-colors ${
-                isScrolled ? "text-primary" : "text-white"
+                showSolidNavbar ? "text-primary" : "text-white"
               }`}
             />
             <span
               className={`text-xl md:text-2xl font-bold transition-colors ${
-                isScrolled ? "text-primary" : "text-white"
+                showSolidNavbar ? "text-primary" : "text-white"
               }`}
             >
               जोहार झारखण्ड
@@ -85,7 +90,7 @@ const Navbar = () => {
                 key={link.name}
                 onClick={() => handleNavClick(link.href, link.isPage)}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isScrolled ? "text-foreground" : "text-white"
+                  showSolidNavbar ? "text-foreground" : "text-white"
                 }`}
               >
                 {link.name}
@@ -95,11 +100,11 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
-            <FeedbackDialog variant={isScrolled ? "outline" : "ghost"} className={isScrolled ? "" : "text-white border-white/30 hover:bg-white/10"} />
+            <FeedbackDialog variant={showSolidNavbar ? "outline" : "ghost"} className={showSolidNavbar ? "" : "text-white border-white/30 hover:bg-white/10"} />
             {user ? (
               <Button
                 onClick={() => navigate("/calendar")}
-                variant={isScrolled ? "default" : "secondary"}
+                variant={showSolidNavbar ? "default" : "secondary"}
                 className="gap-2"
               >
                 <Calendar className="w-4 h-4" />
@@ -108,7 +113,7 @@ const Navbar = () => {
             ) : (
               <Button
                 onClick={() => navigate("/auth")}
-                variant={isScrolled ? "default" : "secondary"}
+                variant={showSolidNavbar ? "default" : "secondary"}
                 className="gap-2"
               >
                 <User className="w-4 h-4" />
@@ -121,7 +126,7 @@ const Navbar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`md:hidden p-2 transition-colors ${
-              isScrolled ? "text-foreground" : "text-white"
+              showSolidNavbar ? "text-foreground" : "text-white"
             }`}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
